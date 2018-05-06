@@ -35,9 +35,9 @@ function dev_server() {
   cd public
   ret=`python -c 'import sys; print("%i" % (sys.hexversion<0x03000000))'`
   if [ $ret -eq 0 ]; then
-    exec python -m http.server 9292
+    exec python -m http.server $PORT  #changed from 9292 for cloud9 accomodation
   else 
-    exec python -m SimpleHTTPServer 9292
+    exec python -m SimpleHTTPServer $PORT
   fi
 }
 
